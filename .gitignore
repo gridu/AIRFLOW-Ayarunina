@@ -72,5 +72,5 @@ creds
 # docker
 /*.jar
 /.creds/
-/airflow-docker/data/*
-
+/data/*
+/airflow_files/logs/*

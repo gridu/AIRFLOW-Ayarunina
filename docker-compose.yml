@@ -11,7 +11,7 @@ services:
       - "5432:5432"
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
-#  comment initdb after you will have use it at first run
+  # uncomment initdb if you need initdb at first run
   initdb:
     build: .
     entrypoint: airflow initdb
@@ -23,7 +23,7 @@ services:
     depends_on:
       - postgres
     volumes:
-      - ../dags:/usr/local/airflow/dags
+      - ./airflow_files/dags:/usr/local/airflow/dags
     ports:
       - "8080:8080"
     entrypoint: airflow webserver
@@ -37,8 +37,10 @@ services:
     restart: always
     depends_on:
       - postgres
+      - webserver
     volumes:
-      - ../dagss:/usr/local/airflow/dags
+      - ./airflow_files/dags:/usr/local/airflow/dags
+      - ./airflow_files/logs:/usr/local/airflow/logs
     entrypoint: airflow scheduler
     healthcheck:
       test: ["CMD-SHELL", "[ -f /usr/local/airflow/airflow-scheduler.pid ]"]

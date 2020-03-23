@@ -10,8 +10,8 @@ from airflow.operators.python_operator import PythonOperator
 from airflow.operators.subdag_operator import SubDagOperator
 from airflow.sensors.external_task_sensor import ExternalTaskSensor
 
-FILEPATH = "/Users/ayarunina/airflow/run"
-FINISH_FILEPATH_PREFIX = "/Users/ayarunina/airflow/finished"
+FILEPATH = "/usr/local/airflow/dags/run"
+FINISH_FILEPATH_PREFIX = "/usr/local/airflow/dags/finished"
 EXTERNAL_DAG_ID = "query_table_1"
 EXTERNAL_TASK_ID = "print_result"
 
@@ -35,6 +35,7 @@ def process_result_subdag(parent_dag_name,
              start_date=start_date,
              ) as dag:
         sensor_triggered_dag_task = ExternalTaskSensor(task_id="sensor_triggered_dag",
+                                                       external_task_id=external_task_id,
                                                        external_dag_id=external_dag_id,
                                                        execution_delta=timedelta(minutes=0))
 
