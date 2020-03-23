@@ -1,0 +1,76 @@
+# CMake
+cmake-build-debug/
+
+## File-based project format:
+*.iws
+
+## Plugin-specific files:
+
+# IntelliJ
+/out/
+
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Cursive Clojure plugin
+.idea/replstate.xml
+
+# Ruby plugin and RubyMine
+/.rakeTasks
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+### Intellij Patch ###
+# Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
+
+# *.iml
+# modules.xml
+# .idea/misc.xml
+# *.ipr
+
+# Sonarlint plugin
+.idea/sonarlint
+
+# End of https://www.gitignore.io/api/intellij
+
+# eclipse
+.settings
+.classpath
+.project
+.scala_dependencies
+camus
+.idea
+*.iml
+velocity.log
+build.log
+target
+.DS_Store
+dependency-reduced-pom.xml
+tools/uigen/velocity.log*
+derby.log
+metastore_db
+classes/*
+files-ingestion-jobs/src/main/airflow/dags/*.zip
+files-ingestion-jobs/src/main/scala/META-INF/*
+
+**/*.versionsBackup.venv
+
+# python
+*.pyc
+.venv
+venv/*
+*.py.bak
+#docker-compose.yml
+creds
+
+# docker
+/*.jar
+/.creds/
+/airflow-docker/data/*
+
